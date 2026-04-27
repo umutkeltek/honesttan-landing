@@ -1,0 +1,244 @@
+:root {
+  --paper: #F8F2E5;
+  --paper2: #EBDFC8;
+  --ink: #1F1A14;
+  --ink2: #4A4339;
+  --ink3: #7A7063;
+  --rule: #CFC7B5;
+  --mark: #D85B2D;
+  --gold: #E4A642;
+
+  --serif: 'Fraunces', 'New York', 'Iowan Old Style', Georgia, ui-serif, serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --maxw: 640px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga", "kern", "ss01";
+}
+
+::selection { background: var(--mark); color: var(--paper); }
+
+main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 72px 28px 96px;
+}
+
+@media (max-width: 520px) {
+  main { padding: 56px 22px 80px; }
+}
+
+/* ─── Header mark + eyebrow ───────────────────────────────── */
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.4px;
+  color: var(--ink3);
+  text-transform: uppercase;
+}
+
+.mark svg { display: block; flex-shrink: 0; }
+.mark a { color: var(--ink3); border: 0; }
+.mark a:hover { color: var(--ink); }
+
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.4px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+header { margin-bottom: 40px; }
+
+h1 {
+  font-weight: 400;
+  font-size: clamp(34px, 6.2vw, 48px);
+  letter-spacing: -1px;
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+h1 .italic { font-style: italic; color: var(--ink2); }
+h1 .underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+h1 .underline::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.3px;
+  margin: 44px 0 10px;
+  color: var(--ink);
+}
+
+h3 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 17.5px;
+  letter-spacing: -0.1px;
+  color: var(--ink);
+  margin: 28px 0 8px;
+}
+
+p, ul {
+  color: var(--ink2);
+  margin-bottom: 16px;
+  font-size: 16.5px;
+}
+
+ul { padding-left: 20px; list-style: none; }
+ul li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 18px;
+}
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 12px;
+  width: 10px; height: 1px;
+  background: var(--ink3);
+}
+
+em, .italic { font-style: italic; color: var(--ink2); }
+
+a {
+  color: var(--mark);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--mark) 30%, transparent);
+  transition: border-color 140ms ease, color 140ms ease;
+}
+a:hover {
+  border-bottom-color: var(--mark);
+  color: color-mix(in srgb, var(--mark) 80%, var(--ink));
+}
+
+/* ─── Decorative rule ─────────────────────────────────────── */
+
+.hairline {
+  display: block;
+  margin: 40px auto;
+  width: 42px;
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  opacity: 0.7;
+}
+
+/* ─── Card ────────────────────────────────────────────────── */
+
+.card {
+  background: var(--paper2);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 20px 0;
+  border: 1px solid color-mix(in srgb, var(--rule) 65%, transparent);
+}
+
+.card .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.card p { margin-bottom: 0; }
+
+.muted {
+  color: var(--ink3);
+  font-size: 13.5px;
+  font-style: italic;
+}
+
+/* ─── Lead paragraph ──────────────────────────────────────── */
+
+.lead {
+  font-size: 19px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+
+footer {
+  margin-top: 72px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink3);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer a {
+  color: var(--ink3);
+  border-bottom: 1px solid transparent;
+}
+footer a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink3);
+}
+
+footer .sig {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink3);
+}
+
+/* ─── FAQ grouping ────────────────────────────────────────── */
+
+.faq {
+  border-top: 1px solid var(--rule);
+  margin-top: 16px;
+}
+.faq > div {
+  padding: 20px 0 4px;
+  border-bottom: 1px solid color-mix(in srgb, var(--rule) 60%, transparent);
+}
+.faq h3 { margin-top: 0; }
+.faq p:last-child { margin-bottom: 20px; }
